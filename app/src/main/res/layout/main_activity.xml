@@ -17,20 +17,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/greeting"
         android:layout_width="404dp"
         android:layout_height="161dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/nutty_noises"
         android:text="Sup boarder,"
         android:textAlignment="center"
         android:textColor="#BAFF4C5F"
         android:textSize="100sp"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/startupVideo" />
-
 
     <TextView
         android:id="@+id/greeting_details"
@@ -51,7 +53,7 @@
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/thin"
         android:hint="Email Address"
@@ -60,7 +62,7 @@
         android:textColorHint="#B0FFFFFF"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greeting" />
 
@@ -87,7 +89,7 @@
         android:id="@+id/loginButton"
         android:layout_width="208dp"
         android:layout_height="87dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="68dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/nutty_noises"
         android:text="Login."
@@ -102,12 +104,13 @@
         android:id="@+id/noAccTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="84dp"
         android:fontFamily="@font/vankours"
         android:text="Forgot Password?"
         android:textColor="#C8FFFFFF"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/loginButton" />
 
@@ -116,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/vankours"
         android:text="Not a member yet?"
         android:textColor="#C8FFFFFF"
