@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/drawable/button.xml" value="0.337" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/drawable/input_field.xml" value="0.506" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_register.xml" value="0.5497435897435897" />
       </map>
     </option>
   </component>
