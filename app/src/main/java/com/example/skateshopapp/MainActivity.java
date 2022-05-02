@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.main_activity);
 
+        noSignUp = findViewById(R.id.continueWithoutSignupTextView);
+        noSignUp.setOnClickListener(this);
+
         registerUser = findViewById(R.id.registerTextView);
         registerUser.setOnClickListener(this);
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         videoView = findViewById(R.id.startupVideo);
         button = findViewById(R.id.loginButton);
 
-        String path = "android.resource://com.example.skateshopapp/" + R.raw.sratuo_video_slowed;
+        String path = "android.resource://com.example.skateshopapp/" + R.raw.startup_video_slowed;
         Uri uri = Uri.parse(path);
 
         videoView.setVideoURI(uri);
@@ -55,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.registerTextView)
         {
             startActivity(new Intent(this, RegisterActivity.class));
+        } else if(view.getId() == R.id.continueWithoutSignupTextView)
+        {
+            startActivity(new Intent(this, HomePageActivity.class));
         }
     }
 }
