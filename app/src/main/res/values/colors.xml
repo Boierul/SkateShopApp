@@ -14,4 +14,5 @@
     <color name="red_secondary_dark">#D0F97C7C</color>
     <color name="dark_blue">#2A3D5A</color>
     <color name="dark_blue_light">#617595</color>
+    <color name="light_gray">#E8EAED</color>
 </resources>
