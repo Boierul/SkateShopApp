@@ -1,4 +1,4 @@
-package com.example.skateshopapp;
+package com.example.skateshopapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.example.skateshopapp.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,18 +50,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         button.setOnClickListener(view ->
                 startActivity(new Intent(MainActivity.this, RegisterActivity.class)));
-
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.forgetPasswordTextView) {
             startActivity(new Intent(this, ForgetPasswordActivity.class));
-        } else if (view.getId() == R.id.registerTextView)
-        {
+        } else if (view.getId() == R.id.registerTextView) {
             startActivity(new Intent(this, RegisterActivity.class));
-        } else if(view.getId() == R.id.continueWithoutSignupTextView)
-        {
+        } else if (view.getId() == R.id.continueWithoutSignupTextView) {
             startActivity(new Intent(this, HomePageActivity.class));
         }
     }
