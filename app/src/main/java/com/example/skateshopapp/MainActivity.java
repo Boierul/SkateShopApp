@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private VideoView videoView;
     private Button button;
-    private TextView resetPass;
+    private TextView resetPass, registerUser, noSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Make to run your application only in portrait mode
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.main_activity);
+
+        registerUser = findViewById(R.id.registerTextView);
+        registerUser.setOnClickListener(this);
 
         resetPass = findViewById(R.id.forgetPasswordTextView);
         resetPass.setOnClickListener(this);
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == R.id.forgetPasswordTextView) {
             startActivity(new Intent(this, ForgetPasswordActivity.class));
+        } else if (view.getId() == R.id.registerTextView)
+        {
+            startActivity(new Intent(this, RegisterActivity.class));
         }
     }
 }
