@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.skateshopapp.R;
 import com.example.skateshopapp.adapter.DecksRecycleAdapter;
@@ -22,6 +26,8 @@ public class HomePageActivity extends AppCompatActivity {
     private DecksRecycleAdapter decksRecycleAdapter;
     private List<NewRelease> newReleaseList;
     private List<Decks> decksList;
+
+    private ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +78,14 @@ public class HomePageActivity extends AppCompatActivity {
         decksRecycleAdapter.notifyDataSetChanged();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
+
+        // TODO setup button path (it opens multiple HomePages and this might cause problems)
+        home = findViewById(R.id.logo);
+        home.setOnClickListener(view -> {
+            if (this != HomePageActivity.this) {
+                startActivity(new Intent(this, HomePageActivity.class));
+            }
+        });
+
     }
 }
