@@ -1,12 +1,12 @@
 package com.example.skateshopapp.model;
 
-public class Decks {
+public class Item {
 
     private String name;
     private String imageURL;
     private String price;
 
-    public Decks(String name, String imageURL, String price) {
+    public Item(String name, String imageURL, String price) {
         this.name = name;
         this.imageURL = imageURL;
         this.price = price;

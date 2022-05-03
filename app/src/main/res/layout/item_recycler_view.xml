@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="6dp"
-    android:id="@+id/decks_with_details">
+    android:id="@+id/item_container">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/deck_image"
+            android:id="@+id/itemImage"
             android:layout_width="170dp"
             android:layout_height="300dp"
             android:src="@drawable/deck_2"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/deck_details"
+            android:id="@+id/itemName"
             android:layout_width="146dp"
             android:layout_height="41dp"
             android:layout_marginTop="8dp"
@@ -33,10 +33,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priceDetailsTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/itemPriceTextView" />
 
         <TextView
-            android:id="@+id/priceDetailsTextView"
+            android:id="@+id/itemPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -44,7 +44,7 @@
             android:fontFamily="@font/semi_bold"
             android:text="550 Kr."
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deck_image" />
+            app:layout_constraintTop_toBottomOf="@+id/itemImage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

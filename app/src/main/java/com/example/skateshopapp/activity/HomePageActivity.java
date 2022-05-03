@@ -5,15 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.skateshopapp.R;
-import com.example.skateshopapp.adapter.DecksRecycleAdapter;
+import com.example.skateshopapp.adapter.ItemRecycleAdapter;
 import com.example.skateshopapp.adapter.NewReleaseRecyclerAdapter;
-import com.example.skateshopapp.model.Decks;
+import com.example.skateshopapp.model.Item;
 import com.example.skateshopapp.model.NewRelease;
 
 import java.util.ArrayList;
@@ -23,15 +22,16 @@ public class HomePageActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewNewRelease, recyclerViewDecks;
     private NewReleaseRecyclerAdapter newReleaseRecyclerAdapter;
-    private DecksRecycleAdapter decksRecycleAdapter;
+    private ItemRecycleAdapter itemRecycleAdapter;
     private List<NewRelease> newReleaseList;
-    private List<Decks> decksList;
+    private List<Item> itemList;
 
     private ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home_page);
 
         recyclerViewNewRelease = findViewById(R.id.newArrivalsRecycleView);
@@ -56,26 +56,26 @@ public class HomePageActivity extends AppCompatActivity {
         /* ----------------------------------------------------------------------------------------------------------------------------- */
 
         recyclerViewDecks = findViewById(R.id.decksRecyclerView);
-        decksList = new ArrayList<>();
+        itemList = new ArrayList<>();
 
-        Decks decks_item_1 = new Decks("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
-        Decks decks_item_2 = new Decks("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
-        Decks decks_item_3 = new Decks("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
-        Decks decks_item_4 = new Decks("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
-        Decks decks_item_5 = new Decks("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "550 Kr.");
+        Item item_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
+        Item item_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
+        Item item_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
+        Item item_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+        Item item_item_5 = new Item("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "550 Kr.");
 
 
-        decksList.add(decks_item_1);
-        decksList.add(decks_item_2);
-        decksList.add(decks_item_3);
-        decksList.add(decks_item_4);
-        decksList.add(decks_item_5);
+        itemList.add(item_item_1);
+        itemList.add(item_item_2);
+        itemList.add(item_item_3);
+        itemList.add(item_item_4);
+        itemList.add(item_item_5);
 
-        decksRecycleAdapter = new DecksRecycleAdapter(this, decksList);
+        itemRecycleAdapter = new ItemRecycleAdapter(this, itemList);
         recyclerViewDecks.setHasFixedSize(true);
         recyclerViewDecks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewDecks.setAdapter(decksRecycleAdapter);
-        decksRecycleAdapter.notifyDataSetChanged();
+        recyclerViewDecks.setAdapter(itemRecycleAdapter);
+        itemRecycleAdapter.notifyDataSetChanged();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
 
