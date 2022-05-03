@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="14dp"
+    android:id="@+id/new_release">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="145dp"
+            android:layout_height="205dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/card_photo_1" />
+
+        <TextView
+            android:id="@+id/itemNameTextView"
+            android:layout_width="63dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/light"
+            android:text="Carlos Ribeiro Frieza"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/card_image"
+            app:layout_constraintHorizontal_bias="0.804"
+            app:layout_constraintStart_toStartOf="@+id/card_image"
+            app:layout_constraintTop_toTopOf="@+id/card_image" />
+
+        <TextView
+            android:id="@+id/sizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/thin"
+            android:text="8.5"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/itemNameTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/itemNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/itemNameTextView" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/thin"
+            android:text="500 kr."
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/sizeTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sizeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/sizeTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
