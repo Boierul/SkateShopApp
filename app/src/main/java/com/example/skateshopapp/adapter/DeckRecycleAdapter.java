@@ -17,30 +17,30 @@ import com.example.skateshopapp.model.Item;
 
 import java.util.List;
 
-public class ItemRecycleAdapter extends RecyclerView.Adapter<ItemRecycleAdapter.ItemViewHolder>  {
+public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.DeckViewHolder>  {
 
 
     private Context context;
     private List<Item> itemList;
 
-    public ItemRecycleAdapter(Context context, List<Item> itemList) {
+    public DeckRecycleAdapter(Context context, List<Item> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DeckViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.item_recycler_view, parent, false);
 
-        final ItemViewHolder viewHolder = new ItemViewHolder(view);
+        final DeckViewHolder viewHolder = new DeckViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DeckViewHolder holder, int position) {
         holder.itemName.setText(itemList.get(position).getName());
         holder.price.setText(itemList.get(position).getPrice());
 
@@ -53,13 +53,13 @@ public class ItemRecycleAdapter extends RecyclerView.Adapter<ItemRecycleAdapter.
     }
 
 
-    public static class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class DeckViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView itemImage;
         TextView price, itemName;
         LinearLayout linear_layout_decks;
 
-        public ItemViewHolder(@NonNull View itemView) {
+        public DeckViewHolder(@NonNull View itemView) {
             super(itemView);
             linear_layout_decks = itemView.findViewById(R.id.item_container);
             itemImage = itemView.findViewById(R.id.itemImage);

@@ -10,8 +10,9 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.skateshopapp.R;
-import com.example.skateshopapp.adapter.ItemRecycleAdapter;
+import com.example.skateshopapp.adapter.DeckRecycleAdapter;
 import com.example.skateshopapp.adapter.NewReleaseRecyclerAdapter;
+import com.example.skateshopapp.adapter.TruckRecycleAdapter;
 import com.example.skateshopapp.model.Item;
 import com.example.skateshopapp.model.NewRelease;
 
@@ -20,11 +21,12 @@ import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerViewNewRelease, recyclerViewDecks;
+    private RecyclerView recyclerViewNewRelease, recyclerViewDecks, recyclerViewTrucks, recyclerViewAccessories;
     private NewReleaseRecyclerAdapter newReleaseRecyclerAdapter;
-    private ItemRecycleAdapter itemRecycleAdapter;
+    private DeckRecycleAdapter deckRecycleAdapter;
+    private TruckRecycleAdapter truckRecycleAdapter;
     private List<NewRelease> newReleaseList;
-    private List<Item> itemList;
+    private List<Item> decksList, trucksList, accessoriesList;
 
     private ImageView home;
 
@@ -33,6 +35,8 @@ public class HomePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home_page);
+
+        /* New release cards */
 
         recyclerViewNewRelease = findViewById(R.id.newArrivalsRecycleView);
         newReleaseList = new ArrayList<>();
@@ -54,30 +58,55 @@ public class HomePageActivity extends AppCompatActivity {
         newReleaseRecyclerAdapter.notifyDataSetChanged();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Decks */
 
         recyclerViewDecks = findViewById(R.id.decksRecyclerView);
-        itemList = new ArrayList<>();
+        decksList = new ArrayList<>();
 
-        Item item_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
-        Item item_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
-        Item item_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
-        Item item_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
-        Item item_item_5 = new Item("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "550 Kr.");
+        Item deck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
+        Item deck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
+        Item deck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
+        Item deck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+        Item deck_item_5 = new Item("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "550 Kr.");
 
 
-        itemList.add(item_item_1);
-        itemList.add(item_item_2);
-        itemList.add(item_item_3);
-        itemList.add(item_item_4);
-        itemList.add(item_item_5);
+        decksList.add(deck_item_1);
+        decksList.add(deck_item_2);
+        decksList.add(deck_item_3);
+        decksList.add(deck_item_4);
+        decksList.add(deck_item_5);
 
-        itemRecycleAdapter = new ItemRecycleAdapter(this, itemList);
+        deckRecycleAdapter = new DeckRecycleAdapter(this, decksList);
         recyclerViewDecks.setHasFixedSize(true);
         recyclerViewDecks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewDecks.setAdapter(itemRecycleAdapter);
-        itemRecycleAdapter.notifyDataSetChanged();
+        recyclerViewDecks.setAdapter(deckRecycleAdapter);
+        deckRecycleAdapter.notifyDataSetChanged();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Trucks */
+
+        recyclerViewTrucks = findViewById(R.id.trucksRecyclerView);
+        trucksList = new ArrayList<>();
+
+        Item truck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
+        Item truck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
+        Item truck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
+        Item truck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+
+
+        trucksList.add(truck_item_1);
+        trucksList.add(truck_item_2);
+        trucksList.add(truck_item_3);
+        trucksList.add(truck_item_4);
+
+        truckRecycleAdapter = new TruckRecycleAdapter(this, trucksList);
+        recyclerViewTrucks.setHasFixedSize(true);
+        recyclerViewTrucks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewTrucks.setAdapter(truckRecycleAdapter);
+        deckRecycleAdapter.notifyDataSetChanged();
+
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
+
 
         // TODO setup button path (it opens multiple HomePages and this might cause problems)
         home = findViewById(R.id.logo);
