@@ -7,82 +7,131 @@
     android:background="@color/white"
     tools:context=".activity.HomePageActivity">
 
+    // TODO do not forget to change back to match_parent
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/search_badge"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:drawableLeft="@drawable/ic_search_black_24"
-        android:drawablePadding="8dp"
-        android:drawableTint="#020202"
-        android:fontFamily="@font/light"
-        android:hint="Search"
-        android:paddingStart="8dp"
-        android:textColor="#999999"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="214dp"
+            android:layout_height="94dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/newArrivalsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/light"
-        android:text="New Arrivals"
-        android:textColor="#999999"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_badge" />
+        <EditText
+            android:id="@+id/search_badge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:drawableLeft="@drawable/ic_search_black_24"
+            android:drawablePadding="8dp"
+            android:drawableTint="#020202"
+            android:fontFamily="@font/light"
+            android:hint="Search"
+            android:paddingStart="8dp"
+            android:textColor="#999999"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newArrivalsRecycleView"
-        android:layout_width="0dp"
-        android:layout_height="215dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newArrivalsTextView" />
+        <TextView
+            android:id="@+id/newArrivalsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/light"
+            android:text="New Arrivals"
+            android:textColor="#999999"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_badge" />
 
-    <TextView
-        android:id="@+id/decksTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/light"
-        android:text="Decks"
-        android:textColor="#999999"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newArrivalsRecycleView" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newArrivalsRecycleView"
+            android:layout_width="0dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newArrivalsTextView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/decksRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="380dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/decksTextView" />
+        <TextView
+            android:id="@+id/decksTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/light"
+            android:text="Decks"
+            android:textColor="#999999"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newArrivalsRecycleView" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="214dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/decksRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decksTextView" />
+
+        <TextView
+            android:id="@+id/trucksTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/light"
+            android:text="Trucks"
+            android:textColor="#999999"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decksRecyclerView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trucksRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trucksTextView" />
+
+        <TextView
+            android:id="@+id/accesoriesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/light"
+            android:text="Accesories"
+            android:textColor="#999999"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trucksRecyclerView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/asdas"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accesoriesTextView" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
