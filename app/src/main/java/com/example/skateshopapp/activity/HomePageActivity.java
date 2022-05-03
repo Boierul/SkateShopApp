@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.skateshopapp.R;
+import com.example.skateshopapp.adapter.AccessoriesRecycleAdapter;
 import com.example.skateshopapp.adapter.DeckRecycleAdapter;
 import com.example.skateshopapp.adapter.NewReleaseRecyclerAdapter;
 import com.example.skateshopapp.adapter.TruckRecycleAdapter;
@@ -25,6 +26,7 @@ public class HomePageActivity extends AppCompatActivity {
     private NewReleaseRecyclerAdapter newReleaseRecyclerAdapter;
     private DeckRecycleAdapter deckRecycleAdapter;
     private TruckRecycleAdapter truckRecycleAdapter;
+    private AccessoriesRecycleAdapter accessoriesRecycleAdapter;
     private List<NewRelease> newReleaseList;
     private List<Item> decksList, trucksList, accessoriesList;
 
@@ -106,7 +108,29 @@ public class HomePageActivity extends AppCompatActivity {
         deckRecycleAdapter.notifyDataSetChanged();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Accessories */
 
+        recyclerViewAccessories = findViewById(R.id.accessoriesRecyclerView);
+        accessoriesList = new ArrayList<>();
+
+        Item accessories_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
+        Item accessories_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
+        Item accessories_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
+        Item accessories_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+
+
+        accessoriesList.add(accessories_item_1);
+        accessoriesList.add(accessories_item_2);
+        accessoriesList.add(accessories_item_3);
+        accessoriesList.add(accessories_item_4);
+
+        accessoriesRecycleAdapter = new AccessoriesRecycleAdapter(this, accessoriesList);
+        recyclerViewAccessories.setHasFixedSize(true);
+        recyclerViewAccessories.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewAccessories.setAdapter(accessoriesRecycleAdapter);
+        accessoriesRecycleAdapter.notifyDataSetChanged();
+
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
 
         // TODO setup button path (it opens multiple HomePages and this might cause problems)
         home = findViewById(R.id.logo);
