@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstnameEditText" />
 
     <EditText
-        android:id="@+id/addressEditText"
+        android:id="@+id/streetEditText"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/streetEditText" />
 
     <EditText
         android:id="@+id/postalcodeEditText"
@@ -129,15 +129,14 @@
         app:layout_constraintTop_toBottomOf="@+id/countryEditText" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/emailEditText"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_field_v2"
         android:ems="10"
         android:fontFamily="@font/light"
-        android:hint="Enter your password"
-        android:inputType="textPassword"
+        android:hint="Enter your email address"
         android:textColor="@color/dark_blue"
         android:textColorHint="#9F7A7C80"
         android:textSize="16sp"
@@ -147,22 +146,21 @@
         app:layout_constraintTop_toBottomOf="@+id/postalcodeEditText" />
 
     <EditText
-        android:id="@+id/repeatPasswordEditText"
+        android:id="@+id/passwordEditText"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_field_v2"
         android:ems="10"
         android:fontFamily="@font/light"
-        android:hint="Repeat your password"
-        android:inputType="textPassword"
+        android:hint="Enter your password"
         android:textColor="@color/dark_blue"
         android:textColorHint="#9F7A7C80"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <Button
         android:id="@+id/createAccountButton"
@@ -178,8 +176,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeatPasswordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/progressBarRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/red_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

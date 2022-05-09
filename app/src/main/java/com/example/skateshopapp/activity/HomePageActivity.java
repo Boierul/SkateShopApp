@@ -23,10 +23,12 @@ import java.util.List;
 public class HomePageActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewNewRelease, recyclerViewDecks, recyclerViewTrucks, recyclerViewAccessories;
+
     private NewReleaseRecyclerAdapter newReleaseRecyclerAdapter;
     private DeckRecycleAdapter deckRecycleAdapter;
     private TruckRecycleAdapter truckRecycleAdapter;
     private AccessoriesRecycleAdapter accessoriesRecycleAdapter;
+
     private List<NewRelease> newReleaseList;
     private List<Item> decksList, trucksList, accessoriesList;
 

@@ -28,7 +28,6 @@
         android:textAlignment="center"
         android:textColor="#BAFF4C5F"
         android:textSize="100sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +50,7 @@
 
 
     <EditText
-        android:id="@+id/addressEditText"
+        android:id="@+id/streetEditText"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="84dp"
@@ -68,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/emailEditText"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
@@ -83,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/streetEditText" />
 
     <Button
         android:id="@+id/loginButton"
@@ -98,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <TextView
         android:id="@+id/forgetPasswordTextView"
@@ -141,6 +140,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/red_primary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/registerTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgetPasswordTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640971082431",
+    "firebase_url": "https://skate-application-default-rtdb.firebaseio.com",
+    "project_id": "skate-application",
+    "storage_bucket": "skate-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640971082431:android:2c38df816aa9477156940a",
+        "android_client_info": {
+          "package_name": "com.example.skateshopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640971082431-bb37f1e5qfobtm0ttkka2a2eciff5ggk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeFC7zskOe4KlcieDEiRCgBaSRcAS1w1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640971082431-bb37f1e5qfobtm0ttkka2a2eciff5ggk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
