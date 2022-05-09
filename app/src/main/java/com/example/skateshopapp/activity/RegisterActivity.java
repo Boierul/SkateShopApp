@@ -23,8 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /* TODO progressbar */
-
     private ImageView backButton;
     private EditText firstName, lastName, street, country, postcode, email, password;
     private Button registerUserButton;
@@ -38,15 +36,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.register_activity);
 
-        backButton = findViewById(R.id.back_button);
+        backButton = findViewById(R.id.back_button_register);
         backButton.setOnClickListener(this);
 
         firstName = findViewById(R.id.firstnameEditText);
         lastName = findViewById(R.id.lastnameEditText);
-        street = findViewById(R.id.streetEditText);
+        street = findViewById(R.id.emailEditTextRegister);
         country = findViewById(R.id.countryEditText);
         postcode = findViewById(R.id.postalcodeEditText);
-        email = findViewById(R.id.emailEditText);
+        email = findViewById(R.id.passwordEditTextMain);
         password = findViewById(R.id.passwordEditText);
         progressBar = findViewById(R.id.progressBarRegister);
 
@@ -58,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.back_button) {
+        if (view.getId() == R.id.back_button_register) {
             finish();
         } else if (view.getId() == R.id.createAccountButton) {
             registerUser();

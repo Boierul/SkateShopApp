@@ -8,7 +8,7 @@
     tools:context=".activity.RegisterActivity">
 
     <ImageView
-        android:id="@+id/back_button"
+        android:id="@+id/back_button_register"
         android:layout_width="30dp"
         android:layout_height="45dp"
         android:layout_marginStart="36dp"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_button" />
+        app:layout_constraintTop_toBottomOf="@+id/back_button_register" />
 
     <TextView
         android:id="@+id/textView2"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstnameEditText" />
 
     <EditText
-        android:id="@+id/streetEditText"
+        android:id="@+id/emailEditTextRegister"
         android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/streetEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextRegister" />
 
     <EditText
         android:id="@+id/postalcodeEditText"
@@ -131,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/countryEditText" />
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/passwordEditTextMain"
         android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextMain" />
 
     <Button
         android:id="@+id/createAccountButton"

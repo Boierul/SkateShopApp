@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         videoView.setOnCompletionListener(mediaPlayer -> mediaPlayer.start());
 
-        emailEditText = findViewById(R.id.streetEditText);
-        passwordEditText = findViewById(R.id.emailEditText);
-        progressBar = findViewById(R.id.progressBar);
+        emailEditText = findViewById(R.id.emailEditTextMain);
+        passwordEditText = findViewById(R.id.passwordEditTextMain);
+        progressBar = findViewById(R.id.progressBarMain);
 
         mAuth = FirebaseAuth.getInstance();
     }
