@@ -138,8 +138,11 @@ public class HomePageActivity extends AppCompatActivity {
         home = findViewById(R.id.logo);
         home.setOnClickListener(view -> {
             if (this != HomePageActivity.this) {
-                startActivity(new Intent(this, HomePageActivity.class));
+                /* TODO change back*/
+//                startActivity(new Intent(this, HomePageActivity.class));
+
             }
+                startActivity(new Intent(this, ProfileActivity.class));
         });
 
     }

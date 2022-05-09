@@ -99,7 +99,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if (task.isSuccessful()) {
                             User user = new User(firstNameTemp, lastNameTemp, streetTemp, countryTemp, postCodeTemp, emailTemp);
 
-                            // "https://skate-application-default-rtdb.firebaseio.com"
                             FirebaseDatabase.getInstance("https://skate-application-default-rtdb.firebaseio.com")
                                     .getReference("Users")
                                     .child(FirebaseAuth.getInstance()

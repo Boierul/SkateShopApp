@@ -1,6 +1,7 @@
 package com.example.skateshopapp.model;
 
 public class User {
+    private String userID;
     private String firstName;
     private String lastName;
     private String streetAddress;
@@ -11,7 +12,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String streetAddress, String country, String postCode, String email) {
+    public User(String firstName,
+                String lastName,
+                String streetAddress,
+                String country,
+                String postCode,
+                String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.streetAddress = streetAddress;

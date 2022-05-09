@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /* TODO */
+
     private VideoView videoView;
 
     private TextView resetPass, registerUser, noSignUp;
@@ -74,7 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.registerTextView) {
             startActivity(new Intent(this, RegisterActivity.class));
         } else if (view.getId() == R.id.continueWithoutSignupTextView) {
-            startActivity(new Intent(this, HomePageActivity.class));
+            /* TODO to modify it
+            *             startActivity(new Intent(this, HomePageActivity.class));
+             * */
+//            startActivity(new Intent(this, HomePageActivity.class));
         } else if (view.getId() == R.id.loginButton) {
             userLogin();
         }
