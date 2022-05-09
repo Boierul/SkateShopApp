@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/firstnameEditText" />
 
     <EditText
-        android:id="@+id/emailEditTextRegister"
+        android:id="@+id/streetEditTextRegister"
         android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditTextRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/streetEditTextRegister" />
 
     <EditText
         android:id="@+id/postalcodeEditText"
@@ -131,7 +131,24 @@
         app:layout_constraintTop_toBottomOf="@+id/countryEditText" />
 
     <EditText
-        android:id="@+id/passwordEditTextMain"
+        android:id="@+id/emailEdiTextRegister"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_field_v2"
+        android:ems="10"
+        android:fontFamily="@font/light"
+        android:hint="Enter your e-mail address"
+        android:textColor="@color/dark_blue"
+        android:textColorHint="#9F7A7C80"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postalcodeEditText" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
         android:layout_width="340dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -146,25 +163,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postalcodeEditText" />
-
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="340dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/input_field_v2"
-        android:ems="10"
-        android:fontFamily="@font/light"
-        android:hint="Repeat your password"
-        android:textColor="@color/dark_blue"
-        android:textColorHint="#9F7A7C80"
-        android:textSize="16sp"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextMain" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEdiTextRegister" />
 
     <Button
         android:id="@+id/createAccountButton"

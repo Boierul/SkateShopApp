@@ -41,10 +41,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         firstName = findViewById(R.id.firstnameEditText);
         lastName = findViewById(R.id.lastnameEditText);
-        street = findViewById(R.id.emailEditTextRegister);
+        street = findViewById(R.id.streetEditTextRegister);
         country = findViewById(R.id.countryEditText);
         postcode = findViewById(R.id.postalcodeEditText);
-        email = findViewById(R.id.passwordEditTextMain);
+        email = findViewById(R.id.emailEdiTextRegister);
         password = findViewById(R.id.passwordEditText);
         progressBar = findViewById(R.id.progressBarRegister);
 
@@ -97,8 +97,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(firstNameTemp, lastNameTemp, streetTemp, countryTemp, postCodeTemp, emailTemp, passwordTemp);
+                            User user = new User(firstNameTemp, lastNameTemp, streetTemp, countryTemp, postCodeTemp, emailTemp);
 
+                            // "https://skate-application-default-rtdb.firebaseio.com"
                             FirebaseDatabase.getInstance("https://skate-application-default-rtdb.firebaseio.com")
                                     .getReference("Users")
                                     .child(FirebaseAuth.getInstance()
