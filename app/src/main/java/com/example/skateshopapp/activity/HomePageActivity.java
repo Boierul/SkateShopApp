@@ -17,8 +17,7 @@ import com.example.skateshopapp.adapter.DeckRecycleAdapter;
 import com.example.skateshopapp.adapter.NewReleaseRecyclerAdapter;
 import com.example.skateshopapp.adapter.TruckRecycleAdapter;
 import com.example.skateshopapp.model.Item;
-import com.example.skateshopapp.model.NewRelease;
-import com.example.skateshopapp.viewmodel.NewReleaseViewModel;
+import com.example.skateshopapp.viewmodel.ItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +33,9 @@ public class HomePageActivity extends AppCompatActivity {
     private TruckRecycleAdapter truckRecycleAdapter;
     private AccessoriesRecycleAdapter accessoriesRecycleAdapter;
 
-    private List<NewRelease> newReleaseList;
-    private List<Item> decksList, trucksList, accessoriesList;
+    private List<Item> newReleaseList, decksList, trucksList, accessoriesList;
 
-    private NewReleaseViewModel viewModel;
+    private ItemViewModel itemViewModel;
 
     private ImageView home;
 
@@ -52,11 +50,10 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewNewRelease = findViewById(R.id.newArrivalsRecycleView);
         newReleaseList = new ArrayList<>();
 
-        /* View Model */
-        viewModel = new ViewModelProvider(this).get(NewReleaseViewModel.class);
-        viewModel.getAllNewReleases().observe(this, newReleases -> {
+        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+        itemViewModel.getAllNewArrived().observe(this, newReleases -> {
             if (!newReleases.isEmpty()) {
-                for (NewRelease nr : newReleases) {
+                for (Item nr : newReleases) {
                     newReleaseList.add(nr);
                 }
             } else {
@@ -66,25 +63,23 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-
         /*  TESTING NEW RELEASE FETCH FROM DATA SERVER
-
-        NewRelease new_release_item_1 = new NewRelease("Carlos Ribeiro Frieza", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_1.png", "8.5", "500 Kr.");
-        NewRelease new_release_item_2 = new NewRelease("Miles Silvas Krillin", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_2.png", "8.0", "500 Kr.");
-        NewRelease new_release_item_3 = new NewRelease("Tiago Lemos Cell", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_3.png", "7.75", "550 Kr.");
-        NewRelease new_release_item_4 = new NewRelease("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_4.png", "8.25", "600 Kr.");
+        Item new_release_item_1 = new Item("Carlos Ribeiro Frieza", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_1.png", "8.5", "500 Kr.");
+        Item new_release_item_2 = new Item("Miles Silvas Krillin", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_2.png", "8.0", "500 Kr.");
+        Item new_release_item_3 = new Item("Tiago Lemos Cell", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_3.png", "7.75", "550 Kr.");
+        Item new_release_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decks/card_photo_4.png", "8.25", "600 Kr.");
 
         newReleaseList.add(new_release_item_1);
         newReleaseList.add(new_release_item_2);
         newReleaseList.add(new_release_item_3);
         newReleaseList.add(new_release_item_4);
+          */
 
         newReleaseRecyclerAdapter = new NewReleaseRecyclerAdapter(this, newReleaseList);
         recyclerViewNewRelease.setHasFixedSize(true);
         recyclerViewNewRelease.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNewRelease.setAdapter(newReleaseRecyclerAdapter);
         newReleaseRecyclerAdapter.notifyDataSetChanged();
-        */
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
         /* Decks */
@@ -92,11 +87,25 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewDecks = findViewById(R.id.decksRecyclerView);
         decksList = new ArrayList<>();
 
-        Item deck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
-        Item deck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
-        Item deck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
-        Item deck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
-        Item deck_item_5 = new Item("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "550 Kr.");
+        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+        itemViewModel.getAllDecks().observe(this, decks -> {
+            if (!decks.isEmpty()) {
+                for (Item deck : decks) {
+                    decksList.add(deck);
+                }
+            } else {
+                Toast.makeText(this,
+                        "The decks list is empty",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*  TESTING NEW RELEASE FETCH FROM DATA SERVER
+        Item deck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "8.0", "550 Kr.");
+        Item deck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "8.0", "450 Kr.");
+        Item deck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "8.0", "500 Kr.");
+        Item deck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "8.0", "600 Kr.");
+        Item deck_item_5 = new Item("Plan B Team OG Skateboard", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_1.png", "8.0", "550 Kr.");
 
 
         decksList.add(deck_item_1);
@@ -104,6 +113,7 @@ public class HomePageActivity extends AppCompatActivity {
         decksList.add(deck_item_3);
         decksList.add(deck_item_4);
         decksList.add(deck_item_5);
+        */
 
         deckRecycleAdapter = new DeckRecycleAdapter(this, decksList);
         recyclerViewDecks.setHasFixedSize(true);
@@ -117,16 +127,30 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewTrucks = findViewById(R.id.trucksRecyclerView);
         trucksList = new ArrayList<>();
 
-        Item truck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
-        Item truck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
-        Item truck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
-        Item truck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+        itemViewModel.getAllDecks().observe(this, trucks -> {
+            if (!trucks.isEmpty()) {
+                for (Item truck : trucks) {
+                    trucksList.add(truck);
+                }
+            } else {
+                Toast.makeText(this,
+                        "The list is empty",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        /*  TESTING NEW RELEASE FETCH FROM DATA SERVER
+        Item truck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "8.0", "550 Kr.");
+        Item truck_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "8.0", "450 Kr.");
+        Item truck_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "8.0", "500 Kr.");
+        Item truck_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "8.0", "600 Kr.");
 
         trucksList.add(truck_item_1);
         trucksList.add(truck_item_2);
         trucksList.add(truck_item_3);
         trucksList.add(truck_item_4);
+        */
 
         truckRecycleAdapter = new TruckRecycleAdapter(this, trucksList);
         recyclerViewTrucks.setHasFixedSize(true);
@@ -140,27 +164,24 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewAccessories = findViewById(R.id.accessoriesRecyclerView);
         accessoriesList = new ArrayList<>();
 
-        Item accessories_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "550 Kr.");
-        Item accessories_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "450 Kr.");
-        Item accessories_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "500 Kr.");
-        Item accessories_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "600 Kr.");
+        /* TESTING NEW RELEASE FETCH FROM DATA SERVER
+        Item accessories_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "7.5", "550 Kr.");
+        Item accessories_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "7.5", "450 Kr.");
+        Item accessories_item_3 = new Item("Baker Old School Red", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_3.png", "7.5", "500 Kr.");
+        Item accessories_item_4 = new Item("Paul Rodriguez Goku", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_7.png", "7.5", "600 Kr.");
 
 
         accessoriesList.add(accessories_item_1);
         accessoriesList.add(accessories_item_2);
         accessoriesList.add(accessories_item_3);
         accessoriesList.add(accessories_item_4);
+        */
 
         accessoriesRecycleAdapter = new AccessoriesRecycleAdapter(this, accessoriesList);
         recyclerViewAccessories.setHasFixedSize(true);
         recyclerViewAccessories.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewAccessories.setAdapter(accessoriesRecycleAdapter);
         accessoriesRecycleAdapter.notifyDataSetChanged();
-
-        /* ----------------------------------------------------------------------------------------------------------------------------- */
-        /* View Model */
-
-
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
 
@@ -170,7 +191,6 @@ public class HomePageActivity extends AppCompatActivity {
             if (this != HomePageActivity.this) {
                 /* TODO change back*/
 //                startActivity(new Intent(this, HomePageActivity.class));
-
             }
             startActivity(new Intent(this, ProfileActivity.class));
         });

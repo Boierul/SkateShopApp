@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.skateshopapp.R;
-import com.example.skateshopapp.model.NewRelease;
+import com.example.skateshopapp.model.Item;
 
 import java.util.List;
 
 public class NewReleaseRecyclerAdapter extends RecyclerView.Adapter<NewReleaseRecyclerAdapter.NewReleaseViewHolder> {
 
     private Context context;
-    private List<NewRelease> newReleaseList;
+    private List<Item> itemList;
 
-    public NewReleaseRecyclerAdapter(Context context, List<NewRelease> newReleaseList) {
+    public NewReleaseRecyclerAdapter(Context context, List<Item> itemList) {
         this.context = context;
-        this.newReleaseList = newReleaseList;
+        this.itemList = itemList;
     }
 
     @NonNull
@@ -40,16 +40,16 @@ public class NewReleaseRecyclerAdapter extends RecyclerView.Adapter<NewReleaseRe
 
     @Override
     public void onBindViewHolder(@NonNull NewReleaseViewHolder holder, int position) {
-        holder.itemName.setText(newReleaseList.get(position).getName());
-        holder.size.setText(newReleaseList.get(position).getSize());
-        holder.price.setText(newReleaseList.get(position).getPrice());
+        holder.itemName.setText(itemList.get(position).getName());
+        holder.size.setText(itemList.get(position).getSize());
+        holder.price.setText(itemList.get(position).getPrice());
 
-        Glide.with(context).load(newReleaseList.get(position).getImageURL()).into(holder.itemImage);
+        Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
     }
 
     @Override
     public int getItemCount() {
-        return newReleaseList.size();
+        return itemList.size();
     }
 
 

@@ -1,17 +1,17 @@
 package com.example.skateshopapp.service;
 
-import com.example.skateshopapp.api.NewReleaseAPI;
+import com.example.skateshopapp.api.ItemAPI;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NewReleaseService {
-    private static NewReleaseAPI newReleaseAPI;
+public class ItemAPIService {
+    private static ItemAPI itemAPI;
 
-    public static synchronized NewReleaseAPI getNewReleaseAPI() {
-        if (newReleaseAPI == null) {
+    public static synchronized ItemAPI getItemAPI() {
+        if (itemAPI == null) {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -24,8 +24,8 @@ public class NewReleaseService {
                             client(okHttpClient).
                             build();
 
-            newReleaseAPI = retrofit.create(NewReleaseAPI.class);
+            itemAPI = retrofit.create(ItemAPI.class);
         }
-        return newReleaseAPI;
+        return itemAPI;
     }
 }

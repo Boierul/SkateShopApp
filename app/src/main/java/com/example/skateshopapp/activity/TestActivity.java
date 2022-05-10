@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.skateshopapp.R;
-import com.example.skateshopapp.model.NewRelease;
-import com.example.skateshopapp.viewmodel.NewReleaseViewModel;
+import com.example.skateshopapp.model.Item;
+import com.example.skateshopapp.viewmodel.ItemViewModel;
 
 public class TestActivity extends AppCompatActivity {
 
     private TextView textView;
-    private NewReleaseViewModel viewModel;
+    private ItemViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,11 @@ public class TestActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textViewResult);
 
-        viewModel = new ViewModelProvider(this).get(NewReleaseViewModel.class);
-        viewModel.getAllNewReleases().observe(this, newReleases -> {
+        viewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+        viewModel.getAllNewArrived().observe(this, newReleases -> {
             if (!newReleases.isEmpty()) {
                 textView.setText("");
-                for (NewRelease nr : newReleases) {
+                for (Item nr : newReleases) {
                     String content = "";
                     content += "Name:  " + nr.getName() + "\n";
                     content += "ImageURL:  " + nr.getImageURL() + "\n";

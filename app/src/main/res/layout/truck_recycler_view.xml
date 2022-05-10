@@ -23,7 +23,7 @@
 
 
         <TextView
-            android:id="@+id/itemName"
+            android:id="@+id/itemNameTruck"
             android:layout_width="146dp"
             android:layout_height="41dp"
             android:fontFamily="@font/thin"

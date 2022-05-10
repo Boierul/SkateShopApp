@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/itemImage"
+            android:id="@+id/itemImageDeck"
             android:layout_width="170dp"
             android:layout_height="300dp"
             android:src="@drawable/deck_2"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/itemName"
+            android:id="@+id/itemNameDeck"
             android:layout_width="146dp"
             android:layout_height="41dp"
             android:layout_marginTop="8dp"
@@ -33,10 +33,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemPriceTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/itemPriceTextViewDeck" />
 
         <TextView
-            android:id="@+id/itemPriceTextView"
+            android:id="@+id/itemPriceTextViewDeck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -44,7 +44,7 @@
             android:fontFamily="@font/semi_bold"
             android:text="550 Kr."
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemImage" />
+            app:layout_constraintTop_toBottomOf="@+id/itemImageDeck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

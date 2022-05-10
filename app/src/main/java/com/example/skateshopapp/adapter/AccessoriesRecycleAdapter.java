@@ -61,9 +61,9 @@ public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesR
         public AccessoriesViewHolder(@NonNull View itemView) {
             super(itemView);
             linear_layout_trucks = itemView.findViewById(R.id.item_container);
-            itemImage = itemView.findViewById(R.id.itemImage);
-            itemName = itemView.findViewById(R.id.itemName);
-            price = itemView.findViewById(R.id.itemPriceTextView);
+            itemImage = itemView.findViewById(R.id.itemImageDeck);
+            itemName = itemView.findViewById(R.id.itemNameDeck);
+            price = itemView.findViewById(R.id.itemPriceTextViewDeck);
         }
 
         @Override
