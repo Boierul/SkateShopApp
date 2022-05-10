@@ -21,11 +21,11 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
 
 
     private Context context;
-    private List<Item> itemList;
+    private List<Item> deckList;
 
-    public DeckRecycleAdapter(Context context, List<Item> itemList) {
+    public DeckRecycleAdapter(Context context, List<Item> deckList) {
         this.context = context;
-        this.itemList = itemList;
+        this.deckList = deckList;
     }
 
     @NonNull
@@ -33,7 +33,7 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
     public DeckViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.item_recycler_view, parent, false);
+        view = inflater.inflate(R.layout.deck_recycler_view, parent, false);
 
         final DeckViewHolder viewHolder = new DeckViewHolder(view);
         return viewHolder;
@@ -41,15 +41,15 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DeckViewHolder holder, int position) {
-        holder.itemName.setText(itemList.get(position).getName());
-        holder.price.setText(itemList.get(position).getPrice());
+        holder.itemName.setText(deckList.get(position).getName());
+        holder.price.setText(deckList.get(position).getPrice());
 
-        Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
+        Glide.with(context).load(deckList.get(position).getImageURL()).into(holder.itemImage);
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return deckList.size();
     }
 
 
@@ -61,7 +61,7 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
 
         public DeckViewHolder(@NonNull View itemView) {
             super(itemView);
-            linear_layout_decks = itemView.findViewById(R.id.item_container);
+            linear_layout_decks = itemView.findViewById(R.id.deck_container);
             itemImage = itemView.findViewById(R.id.itemImageDeck);
             itemName = itemView.findViewById(R.id.itemNameDeck);
             price = itemView.findViewById(R.id.itemPriceTextViewDeck);

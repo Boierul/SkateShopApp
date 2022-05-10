@@ -20,11 +20,11 @@ import java.util.List;
 public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapter.TruckViewHolder> {
 
     private Context context;
-    private List<Item> itemList;
+    private List<Item> truckList;
 
-    public TruckRecycleAdapter(Context context, List<Item> itemList) {
+    public TruckRecycleAdapter(Context context, List<Item> truckList) {
         this.context = context;
-        this.itemList = itemList;
+        this.truckList = truckList;
     }
 
     @NonNull
@@ -32,7 +32,7 @@ public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapte
     public TruckViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.item_recycler_view, parent, false);
+        view = inflater.inflate(R.layout.truck_recycler_view, parent, false);
 
         final TruckViewHolder viewHolder = new TruckViewHolder(view);
         return viewHolder;
@@ -40,15 +40,15 @@ public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapte
 
     @Override
     public void onBindViewHolder(@NonNull TruckViewHolder holder, int position) {
-        holder.itemName.setText(itemList.get(position).getName());
-        holder.price.setText(itemList.get(position).getPrice());
+        holder.itemName.setText(truckList.get(position).getName());
+        holder.price.setText(truckList.get(position).getPrice());
 
-        Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
+        Glide.with(context).load(truckList.get(position).getImageURL()).into(holder.itemImage);
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return truckList.size();
     }
 
 
@@ -61,10 +61,10 @@ public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapte
 
         public TruckViewHolder(@NonNull View itemView) {
             super(itemView);
-            linear_layout_trucks = itemView.findViewById(R.id.item_container);
-            itemImage = itemView.findViewById(R.id.itemImageDeck);
-            itemName = itemView.findViewById(R.id.itemNameDeck);
-            price = itemView.findViewById(R.id.itemPriceTextViewDeck);
+            linear_layout_trucks = itemView.findViewById(R.id.truck_container);
+            itemImage = itemView.findViewById(R.id.truckImage);
+            itemName = itemView.findViewById(R.id.itemPriceTextViewTruck);
+            price = itemView.findViewById(R.id.itemNameTruck);
         }
 
         @Override

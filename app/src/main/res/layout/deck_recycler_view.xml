@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="6dp"
-    android:id="@+id/item_container">
+    android:id="@+id/deck_container">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

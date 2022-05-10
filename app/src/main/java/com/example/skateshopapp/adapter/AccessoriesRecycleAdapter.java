@@ -32,7 +32,7 @@ public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesR
     public AccessoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.item_recycler_view, parent, false);
+        view = inflater.inflate(R.layout.deck_recycler_view, parent, false);
 
         final AccessoriesViewHolder viewHolder = new AccessoriesViewHolder(view);
         return viewHolder;
@@ -60,7 +60,7 @@ public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesR
 
         public AccessoriesViewHolder(@NonNull View itemView) {
             super(itemView);
-            linear_layout_trucks = itemView.findViewById(R.id.item_container);
+            linear_layout_trucks = itemView.findViewById(R.id.deck_container);
             itemImage = itemView.findViewById(R.id.itemImageDeck);
             itemName = itemView.findViewById(R.id.itemNameDeck);
             price = itemView.findViewById(R.id.itemPriceTextViewDeck);

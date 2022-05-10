@@ -27,20 +27,24 @@
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout-xhdpi/main_activity.xml" value="0.33" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout-xxhdpi/main_activity.xml" value="0.33" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout-xxhdpi/main_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/accessories_recycler_view.xml" value="0.4548952543822146" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_forget_password.xml" value="0.33" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_home_page.xml" value="0.22" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_profile.xml" value="0.5" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_register.xml" value="0.5497435897435897" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/activity_test.xml" value="0.4548952543822146" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/deck_recycler_view.xml" value="0.25" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/decks_recycler_items.xml" value="0.5" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/decks_recycler_view.xml" value="0.4548952543822146" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/forget_password_activity.xml" value="0.5" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/item_recycler_view.xml" value="0.5" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/main_activity.xml" value="0.5" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/nav_header.xml" value="0.4583155194527576" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/new_release_recycler_items.xml" value="0.12714776632302405" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/register_activity.xml" value="0.33" />
-        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/truck_recycler_view.xml" value="0.75" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/layout/truck_recycler_view.xml" value="0.5" />
+        <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/menu/drawer_menu.xml" value="0.4548952543822146" />
         <entry key="..\:/Users/Nacia/AndroidStudioProjects/SkateShopApp/app/src/main/res/menu/option_menu.xml" value="0.4548952543822146" />
       </map>
     </option>
