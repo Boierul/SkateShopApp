@@ -21,8 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /* TODO */
-
     private VideoView videoView;
 
     private TextView resetPass, registerUser, noSignUp;
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /* TODO to modify it
             *             startActivity(new Intent(this, HomePageActivity.class));
              * */
-//            startActivity(new Intent(this, HomePageActivity.class));
+            startActivity(new Intent(this, TestActivity.class));
         } else if (view.getId() == R.id.loginButton) {
             userLogin();
         }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SkateShopApp">
         <activity
+            android:name=".activity.TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ProfileActivity"
             android:exported="false" />
         <activity
