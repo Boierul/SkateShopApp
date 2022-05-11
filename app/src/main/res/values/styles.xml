@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SkateAppTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/light</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="ToolBarStyle">
+        <item name="android:fontFamily">@font/thin</item>
+    </style>
+
+</resources>

@@ -10,6 +10,7 @@
 
     <color name="red_primary">#FF4C5F</color>
     <color name="red_primary_dark">#FC2E44</color>
+    <color name="red_primary_darker">#CE9C1F2C</color>
     <color name="red_secondary">#F97C7C</color>
     <color name="red_secondary_dark">#D0F97C7C</color>
     <color name="dark_blue">#2A3D5A</color>
