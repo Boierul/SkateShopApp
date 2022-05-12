@@ -78,9 +78,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
         itemViewModel.getAllNewArrived().observe(this, newReleases -> {
             if (!newReleases.isEmpty()) {
-                for (Item nr : newReleases) {
-                    newReleaseList.add(nr);
-                }
+                newReleaseList.addAll(newReleases);
             } else {
                 Toast.makeText(this,
                         "The list is empty",
@@ -112,7 +110,6 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         recyclerViewDecks = findViewById(R.id.decksRecyclerView);
         decksList = new ArrayList<>();
 
-        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
         itemViewModel.getAllDecks().observe(this, decks -> {
             if (!decks.isEmpty()) {
                 for (Item deck : decks) {
@@ -124,6 +121,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
                         Toast.LENGTH_SHORT).show();
             }
         });
+
 
         /*  TESTING NEW RELEASE FETCH FROM DATA SERVER
         Item deck_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "8.0", "550 Kr.");
@@ -152,8 +150,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         recyclerViewTrucks = findViewById(R.id.trucksRecyclerView);
         trucksList = new ArrayList<>();
 
-        itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
-        itemViewModel.getAllDecks().observe(this, trucks -> {
+        itemViewModel.getAllTrucks().observe(this, trucks -> {
             if (!trucks.isEmpty()) {
                 for (Item truck : trucks) {
                     trucksList.add(truck);
@@ -227,6 +224,7 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
         /* Nav Drawer data binding */
+
         View headerLayout = navigationView.getHeaderView(0);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -243,14 +241,14 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
-                Log.d("HOMEPAGE DATA BINDING - USER ID",userID);
-                Log.d("HOMEPAGE DATA BINDING - USER",userProfile.getEmail());
+                Log.d("HOMEPAGE DATA BINDING - USER ID", userID);
+                Log.d("HOMEPAGE DATA BINDING - USER", userProfile.getEmail());
 
                 String firstName = userProfile.getFirstName();
                 String lastName = userProfile.getLastName();
                 String fullName = firstName + " " + lastName;
 
-                Log.d("HOMEPAGE DATA BINDING - USER",fullName);
+                Log.d("HOMEPAGE DATA BINDING - USER", fullName);
 
                 String email = userProfile.getEmail();
 
