@@ -1,6 +1,7 @@
 package com.example.skateshopapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.skateshopapp.activity.ItemDetailsActivity;
 import com.example.skateshopapp.R;
 import com.example.skateshopapp.model.Item;
 
@@ -45,6 +47,12 @@ public class NewReleaseRecyclerAdapter extends RecyclerView.Adapter<NewReleaseRe
         holder.price.setText(itemList.get(position).getPrice());
 
         Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ItemDetailsActivity.class);
+            intent.putExtra("name", itemList.get(position).getName());
+            context.startActivity(intent);
+        });
     }
 
     @Override

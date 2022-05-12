@@ -1,6 +1,7 @@
 package com.example.skateshopapp.repository;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.skateshopapp.dao.ItemDAO;
 import com.example.skateshopapp.model.Item;
@@ -11,8 +12,6 @@ public class ItemRepository {
 
     private static ItemRepository instance;
     private final ItemDAO itemDAO;
-
-    private LiveData<List<Item>> listLiveData;
 
     public ItemRepository() {
         itemDAO = ItemDAO.getInstance();
@@ -25,15 +24,19 @@ public class ItemRepository {
         return instance;
     }
 
-    public LiveData<List<Item>> getAllNewArrived() {
+    public MutableLiveData<List<Item>> getAllNewArrived() {
         return itemDAO.getNewArrivedList();
     }
 
-    public LiveData<List<Item>> getAllDecks() {
+    public MutableLiveData<List<Item>> getAllDecks() {
         return itemDAO.getDecksList();
     }
 
-    public LiveData<List<Item>> getAllTrucks() {
+    public MutableLiveData<List<Item>> getAllTrucks() {
         return itemDAO.getTrucksList();
+    }
+
+    public MutableLiveData<Item> getDeck(int itemId) {
+        return itemDAO.getDeck(itemId);
     }
 }

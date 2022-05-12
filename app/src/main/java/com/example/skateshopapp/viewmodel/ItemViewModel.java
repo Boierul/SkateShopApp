@@ -1,6 +1,7 @@
 package com.example.skateshopapp.viewmodel;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.skateshopapp.model.Item;
@@ -10,22 +11,34 @@ import java.util.List;
 
 public class ItemViewModel extends ViewModel {
 
+    private static ItemViewModel instance;
     private final ItemRepository repository;
 
     public ItemViewModel() {
         repository = ItemRepository.getInstance();
     }
 
-    public LiveData<List<Item>> getAllNewArrived() {
+    public static synchronized ItemViewModel getInstance() {
+        if (instance == null)
+            instance = new ItemViewModel();
+
+        return instance;
+    }
+
+    public MutableLiveData<List<Item>> getAllNewArrived() {
         return repository.getAllNewArrived();
     }
 
-    public LiveData<List<Item>> getAllDecks() {
+    public MutableLiveData<List<Item>> getAllDecks() {
         return repository.getAllDecks();
     }
 
-    public LiveData<List<Item>> getAllTrucks() {
+    public MutableLiveData<List<Item>> getAllTrucks() {
         return repository.getAllTrucks();
+    }
+
+    public MutableLiveData<Item> getDeck(int itemId) {
+        return repository.getDeck(itemId);
     }
 
 }

@@ -6,9 +6,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Url;
 
 public interface ItemAPI {
-    @GET()
+    @GET
     Call<List<Item>> getItems(@Url String url);
+
+    @GET("deck/{id}")
+    Call<Item> getDeck(@Path("id") int postId);
 }

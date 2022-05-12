@@ -3,12 +3,17 @@ package com.example.skateshopapp.activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,13 +24,24 @@ import com.example.skateshopapp.adapter.AccessoriesRecycleAdapter;
 import com.example.skateshopapp.adapter.DeckRecycleAdapter;
 import com.example.skateshopapp.adapter.NewReleaseRecyclerAdapter;
 import com.example.skateshopapp.adapter.TruckRecycleAdapter;
+import com.example.skateshopapp.fragment.OrdersFragment;
+import com.example.skateshopapp.fragment.SettingsFragment;
 import com.example.skateshopapp.model.Item;
+import com.example.skateshopapp.model.User;
 import com.example.skateshopapp.viewmodel.ItemViewModel;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /* TODO implement search functionality */
 
@@ -40,9 +56,12 @@ public class HomePageActivity extends AppCompatActivity {
 
     private ItemViewModel itemViewModel;
 
-    private ImageView home;
-
     private DrawerLayout drawer;
+
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
+    private TextView userName, userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +69,7 @@ public class HomePageActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home_page);
 
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
         /* New release cards */
 
         recyclerViewNewRelease = findViewById(R.id.newArrivalsRecycleView);
@@ -196,6 +216,9 @@ public class HomePageActivity extends AppCompatActivity {
 
         drawer = findViewById(R.id.drawer_layout);
 
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.red_primary_darker));
@@ -203,16 +226,80 @@ public class HomePageActivity extends AppCompatActivity {
         toggle.syncState();
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Nav Drawer data binding */
+        View headerLayout = navigationView.getHeaderView(0);
 
-        // TODO setup button path (it opens multiple HomePages and this might cause problems)
-//        home = findViewById(R.id.logo);
-//        home.setOnClickListener(view -> {
-//            if (this != HomePageActivity.this) {
-//                /* TODO change back*/
-////                startActivity(new Intent(this, HomePageActivity.class));
-//            }
-//            startActivity(new Intent(this, ProfileActivity.class));
-//        });
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        userID = user.getUid();
+        reference = FirebaseDatabase
+                .getInstance()
+                .getReference("Users").child(userID);
 
+        userName = headerLayout.findViewById(R.id.profileName);
+        userEmail = headerLayout.findViewById(R.id.profileEmail);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+
+                Log.d("HOMEPAGE DATA BINDING - USER ID",userID);
+                Log.d("HOMEPAGE DATA BINDING - USER",userProfile.getEmail());
+
+                String firstName = userProfile.getFirstName();
+                String lastName = userProfile.getLastName();
+                String fullName = firstName + " " + lastName;
+
+                Log.d("HOMEPAGE DATA BINDING - USER",fullName);
+
+                String email = userProfile.getEmail();
+
+                if (userProfile != null) {
+                    userName.setText(fullName);
+                    userEmail.setText(email);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomePageActivity.this,
+                        "Can't fetch user data from server",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.nav_home) {
+            Intent intent = new Intent(this, HomePageActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.nav_settings) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new SettingsFragment()).commit();
+        } else if (item.getItemId() == R.id.nav_orders) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new OrdersFragment()).commit();
+        } else if ((item.getItemId() == R.id.nav_profile)) {
+            startActivity(new Intent(HomePageActivity.this, ProfileActivity.class));
+        } else if (item.getItemId() == R.id.nav_logout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
     }
 }
