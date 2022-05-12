@@ -1,6 +1,5 @@
 package com.example.skateshopapp.viewmodel;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -37,6 +36,9 @@ public class ItemViewModel extends ViewModel {
         return repository.getAllTrucks();
     }
 
+    public MutableLiveData<List<Item>> getAllAccessories() {
+        return repository.getAllAccessories();
+    }
     public MutableLiveData<Item> getDeck(int itemId) {
         return repository.getDeck(itemId);
     }

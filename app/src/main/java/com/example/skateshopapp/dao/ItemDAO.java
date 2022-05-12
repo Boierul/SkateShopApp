@@ -2,7 +2,6 @@ package com.example.skateshopapp.dao;
 
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.skateshopapp.api.ItemAPI;
@@ -18,13 +17,14 @@ import retrofit2.Response;
 public class ItemDAO {
 
     private static ItemDAO instance;
-    private MutableLiveData<List<Item>> newReleaseMutableList, decksMutableList, trucksMutableList;
+    private MutableLiveData<List<Item>> newReleaseMutableList, decksMutableList, trucksMutableList, accessoriesMutableList;
     private MutableLiveData<Item> deckMutable;
 
     public ItemDAO() {
         newReleaseMutableList = new MutableLiveData<>();
         decksMutableList = new MutableLiveData<>();
         trucksMutableList = new MutableLiveData<>();
+        accessoriesMutableList = new MutableLiveData<>();
     }
 
     public static ItemDAO getInstance() {
@@ -124,5 +124,28 @@ public class ItemDAO {
             }
         });
         return deckMutable;
+    }
+
+    public MutableLiveData<List<Item>> getAccessoriesList() {
+        ItemAPI api = ItemAPIService.getItemAPI();
+        Call<List<Item>> call = api.getItems("accessories");
+        call.enqueue(new Callback<List<Item>>() {
+            @Override
+            public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
+                if (!response.isSuccessful()) {
+                    Log.d("TESTING", "Code: " + response.code());
+                    return;
+                }
+
+                List<Item> newList = response.body();
+                accessoriesMutableList.setValue(newList);
+            }
+
+            @Override
+            public void onFailure(Call<List<Item>> call, Throwable t) {
+                Log.d("TESTING FAILURE", t.getMessage());
+            }
+        });
+        return accessoriesMutableList;
     }
 }

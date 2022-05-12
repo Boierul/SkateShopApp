@@ -50,7 +50,7 @@
             android:id="@+id/priceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/thin"
             android:text="500 kr."
             android:textColor="@color/white"

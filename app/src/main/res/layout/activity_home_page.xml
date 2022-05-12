@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    tools:context=".activity.HomePageActivity"
-    tools:openDrawer="start">
+    tools:context=".activity.HomePageActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,10 +33,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="left"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="95dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginRight="85dp"
-                    android:src="@drawable/logo_mini" />
+                    android:src="@drawable/logo_mini_v2" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -61,11 +60,12 @@
                         android:layout_marginEnd="16dp"
                         android:drawableLeft="@drawable/ic_search_black_24"
                         android:drawablePadding="8dp"
-                        android:drawableTint="#020202"
+                        android:drawableTint="@color/red_primary_darker"
                         android:fontFamily="@font/light"
                         android:hint="Search"
                         android:paddingStart="8dp"
-                        android:textColor="#999999"
+                        android:textColor="@color/red_primary_dark"
+                        android:textColorHint="@color/red_secondary"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +78,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/light"
                         android:text="New Arrivals"
-                        android:textColor="#999999"
+                        android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/search_badge" />
@@ -100,7 +100,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/light"
                         android:text="Decks"
-                        android:textColor="#999999"
+                        android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/newArrivalsRecycleView" />
@@ -122,7 +122,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/light"
                         android:text="Trucks"
-                        android:textColor="#999999"
+                        android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/decksRecyclerView" />
@@ -145,7 +145,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/light"
                         android:text="Accessories"
-                        android:textColor="#999999"
+                        android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/trucksRecyclerView" />
@@ -153,7 +153,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/accessoriesRecyclerView"
                         android:layout_width="0dp"
-                        android:layout_height="380dp"
+                        android:layout_height="200dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"

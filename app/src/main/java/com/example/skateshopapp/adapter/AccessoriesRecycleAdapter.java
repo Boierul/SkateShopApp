@@ -20,11 +20,11 @@ import java.util.List;
 public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesRecycleAdapter.AccessoriesViewHolder>{
 
     private Context context;
-    private List<Item> itemList;
+    private List<Item> accessoriesList;
 
-    public AccessoriesRecycleAdapter(Context context, List<Item> itemList) {
+    public AccessoriesRecycleAdapter(Context context, List<Item> accessoriesList) {
         this.context = context;
-        this.itemList = itemList;
+        this.accessoriesList = accessoriesList;
     }
 
     @NonNull
@@ -32,7 +32,7 @@ public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesR
     public AccessoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.deck_recycler_view, parent, false);
+        view = inflater.inflate(R.layout.accessories_recycler_view, parent, false);
 
         final AccessoriesViewHolder viewHolder = new AccessoriesViewHolder(view);
         return viewHolder;
@@ -40,30 +40,30 @@ public class AccessoriesRecycleAdapter extends RecyclerView.Adapter<AccessoriesR
 
     @Override
     public void onBindViewHolder(@NonNull AccessoriesViewHolder holder, int position) {
-        holder.itemName.setText(itemList.get(position).getName());
-        holder.price.setText(itemList.get(position).getPrice());
+        holder.itemName.setText(accessoriesList.get(position).getName());
+        holder.price.setText(accessoriesList.get(position).getPrice());
 
-        Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
+        Glide.with(context).load(accessoriesList.get(position).getImageURL()).into(holder.itemImage);
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return accessoriesList.size();
     }
 
     public static class AccessoriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView itemImage;
         TextView price, itemName;
-        LinearLayout linear_layout_trucks;
+        LinearLayout linear_layout_accessories;
 
 
         public AccessoriesViewHolder(@NonNull View itemView) {
             super(itemView);
-            linear_layout_trucks = itemView.findViewById(R.id.deck_container);
-            itemImage = itemView.findViewById(R.id.itemImageDeck);
-            itemName = itemView.findViewById(R.id.itemNameDeck);
-            price = itemView.findViewById(R.id.itemPriceTextViewDeck);
+            linear_layout_accessories = itemView.findViewById(R.id.accessories_container);
+            itemImage = itemView.findViewById(R.id.accessoriesImage);
+            itemName = itemView.findViewById(R.id.itemNameAccessories);
+            price = itemView.findViewById(R.id.itemPriceTextViewImageAccessories);
         }
 
         @Override

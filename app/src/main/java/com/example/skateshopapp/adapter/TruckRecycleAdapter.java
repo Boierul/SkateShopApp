@@ -63,8 +63,8 @@ public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapte
             super(itemView);
             linear_layout_trucks = itemView.findViewById(R.id.truck_container);
             itemImage = itemView.findViewById(R.id.truckImage);
-            itemName = itemView.findViewById(R.id.itemPriceTextViewTruck);
-            price = itemView.findViewById(R.id.itemNameTruck);
+            price = itemView.findViewById(R.id.itemPriceTextViewTruck);
+            itemName = itemView.findViewById(R.id.itemNameTruck);
         }
 
         @Override

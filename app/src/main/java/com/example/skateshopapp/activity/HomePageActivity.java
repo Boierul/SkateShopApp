@@ -186,6 +186,19 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         recyclerViewAccessories = findViewById(R.id.accessoriesRecyclerView);
         accessoriesList = new ArrayList<>();
 
+        itemViewModel.getAllAccessories().observe(this,
+                accessories -> {
+                    if (!accessories.isEmpty()) {
+                        for (Item accessory : accessories) {
+                            accessoriesList.add(accessory);
+                        }
+                    } else {
+                        Toast.makeText(this,
+                                "The list is empty",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         /* TESTING NEW RELEASE FETCH FROM DATA SERVER
         Item accessories_item_1 = new Item("Primitive X Rick and Morty Exclusive Edition", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_2.png", "7.5", "550 Kr.");
         Item accessories_item_2 = new Item("Girl Andrew Brophy Design", "https://skateappandroid.s3.eu-west-2.amazonaws.com/decksfull/deck_8.png", "7.5", "450 Kr.");
