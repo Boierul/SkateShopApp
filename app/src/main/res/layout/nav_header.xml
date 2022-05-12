@@ -12,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NARUTO UZUMAKI"
+        android:fontFamily="@font/bold"
         android:textAppearance="@style/Theme.Design.NoActionBar"
-        android:textColor="@color/red_primary_darker"
+        android:textColor="#9C1F2C"
         android:textSize="18sp" />
 
     <TextView
@@ -23,6 +24,6 @@
         android:text="naruto.uzumaki@gmail.com"
         android:textSize="15sp"
         android:textAppearance="@style/Theme.Design.NoActionBar"
-        android:textColor="@color/red_primary_darker"/>
+        android:textColor="#9C1F2C"/>
 
 </LinearLayout>

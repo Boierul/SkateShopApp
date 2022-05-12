@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    tools:context=".activity.HomePageActivity">
+    tools:context=".activity.HomePageActivity"
+    tools:openDrawer="start">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -77,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/light"
+                        android:fontFamily="@font/bold"
                         android:text="New Arrivals"
                         android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
@@ -99,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/light"
+                        android:fontFamily="@font/bold"
                         android:text="Decks"
                         android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
@@ -121,7 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/light"
+                        android:fontFamily="@font/bold"
                         android:text="Trucks"
                         android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
@@ -144,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="24dp"
-                        android:fontFamily="@font/light"
+                        android:fontFamily="@font/bold"
                         android:text="Accessories"
                         android:textColor="@color/red_primary_darker"
                         android:textSize="20sp"
