@@ -1,6 +1,7 @@
 package com.example.skateshopapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.skateshopapp.R;
+import com.example.skateshopapp.activity.ItemDetailsActivity;
 import com.example.skateshopapp.model.Item;
 
 import java.util.List;
@@ -44,6 +46,15 @@ public class TruckRecycleAdapter extends RecyclerView.Adapter<TruckRecycleAdapte
         holder.price.setText(truckList.get(position).getPrice());
 
         Glide.with(context).load(truckList.get(position).getImageURL()).into(holder.itemImage);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ItemDetailsActivity.class);
+            intent.putExtra("name", truckList.get(position).getName());
+            intent.putExtra("price", truckList.get(position).getPrice());
+            intent.putExtra("size", truckList.get(position).getSize());
+            intent.putExtra("photo", truckList.get(position).getImageURL());
+            context.startActivity(intent);
+        });
     }
 
     @Override

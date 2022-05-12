@@ -22,11 +22,11 @@ import java.util.List;
 public class NewReleaseRecyclerAdapter extends RecyclerView.Adapter<NewReleaseRecyclerAdapter.NewReleaseViewHolder> {
 
     private Context context;
-    private List<Item> itemList;
+    private List<Item> newReleaseList;
 
-    public NewReleaseRecyclerAdapter(Context context, List<Item> itemList) {
+    public NewReleaseRecyclerAdapter(Context context, List<Item> newReleaseList) {
         this.context = context;
-        this.itemList = itemList;
+        this.newReleaseList = newReleaseList;
     }
 
     @NonNull
@@ -42,22 +42,25 @@ public class NewReleaseRecyclerAdapter extends RecyclerView.Adapter<NewReleaseRe
 
     @Override
     public void onBindViewHolder(@NonNull NewReleaseViewHolder holder, int position) {
-        holder.itemName.setText(itemList.get(position).getName());
-        holder.size.setText(itemList.get(position).getSize());
-        holder.price.setText(itemList.get(position).getPrice());
+        holder.itemName.setText(newReleaseList.get(position).getName());
+        holder.size.setText(newReleaseList.get(position).getSize());
+        holder.price.setText(newReleaseList.get(position).getPrice());
 
-        Glide.with(context).load(itemList.get(position).getImageURL()).into(holder.itemImage);
+        Glide.with(context).load(newReleaseList.get(position).getImageURL()).into(holder.itemImage);
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, ItemDetailsActivity.class);
-            intent.putExtra("name", itemList.get(position).getName());
+            intent.putExtra("name", newReleaseList.get(position).getName());
+            intent.putExtra("price", newReleaseList.get(position).getPrice());
+            intent.putExtra("size", newReleaseList.get(position).getSize());
+            intent.putExtra("photo", newReleaseList.get(position).getImageURL());
             context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return newReleaseList.size();
     }
 
 

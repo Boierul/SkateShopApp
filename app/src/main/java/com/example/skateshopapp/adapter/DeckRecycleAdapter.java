@@ -1,6 +1,9 @@
 package com.example.skateshopapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.skateshopapp.R;
+import com.example.skateshopapp.activity.ItemDetailsActivity;
 import com.example.skateshopapp.model.Item;
 
 import java.util.List;
 
-public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.DeckViewHolder>  {
+public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.DeckViewHolder> {
 
 
     private Context context;
@@ -43,8 +47,18 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
     public void onBindViewHolder(@NonNull DeckViewHolder holder, int position) {
         holder.itemName.setText(deckList.get(position).getName());
         holder.price.setText(deckList.get(position).getPrice());
+        holder.price.setText(deckList.get(position).getPrice());
 
         Glide.with(context).load(deckList.get(position).getImageURL()).into(holder.itemImage);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ItemDetailsActivity.class);
+            intent.putExtra("name", deckList.get(position).getName());
+            intent.putExtra("price", deckList.get(position).getPrice());
+            intent.putExtra("size", deckList.get(position).getSize());
+            intent.putExtra("photo", deckList.get(position).getImageURL());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -69,7 +83,6 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
 
         @Override
         public void onClick(View view) {
-
         }
     }
 }

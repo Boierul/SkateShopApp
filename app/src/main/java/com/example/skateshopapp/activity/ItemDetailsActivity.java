@@ -1,35 +1,69 @@
 package com.example.skateshopapp.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skateshopapp.R;
-import com.example.skateshopapp.activity.HomePageActivity;
-import com.example.skateshopapp.activity.MainActivity;
-import com.example.skateshopapp.activity.ProfileActivity;
-import com.example.skateshopapp.fragment.ItemDetailsFragment;
-import com.example.skateshopapp.fragment.OrdersFragment;
-import com.example.skateshopapp.fragment.SettingsFragment;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.skateshopapp.helpers.ImageLoadTask;
+import com.squareup.picasso.Picasso;
 
-public class ItemDetailsActivity extends AppCompatActivity{
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class ItemDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private ImageLoadTask loadTask;
+    private ImageView backButton, itemImage;
+    private TextView itemDetailsName, itemDetailsPrice, itemDetailsSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_details);
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container_profile, new ItemDetailsFragment()).commit();
+        backButton = findViewById(R.id.back_button_item_details);
+        backButton.setOnClickListener(this);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        itemDetailsName = findViewById(R.id.itemDetailsName);
+        itemDetailsPrice = findViewById(R.id.itemDetailsPrice);
+        itemDetailsSize = findViewById(R.id.itemDetailsSize);
+        itemImage = findViewById(R.id.itemDetailsImage);
+
+        if (bundle != null) {
+            String name, price, size, image;
+
+            name = bundle.getString("name");
+            price = bundle.getString("price");
+            size = bundle.getString("size");
+            image = bundle.getString("photo");
+
+
+            itemDetailsName.setText(name);
+            itemDetailsPrice.setText(price);
+            itemDetailsSize.setText(size);
+            Picasso.get().load(image).into(itemImage);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.back_button_item_details) {
+            finish();
+        }
     }
 }
