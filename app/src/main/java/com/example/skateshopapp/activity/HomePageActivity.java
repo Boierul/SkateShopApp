@@ -3,9 +3,12 @@ package com.example.skateshopapp.activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,10 +43,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /* TODO implement search functionality */
+    private EditText search;
 
     private RecyclerView recyclerViewNewRelease, recyclerViewDecks, recyclerViewTrucks, recyclerViewAccessories;
 
@@ -68,6 +73,27 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home_page);
+
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Search */
+
+        search = findViewById(R.id.search_badge);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         /* ----------------------------------------------------------------------------------------------------------------------------- */
         /* New release cards */
@@ -279,6 +305,26 @@ public class HomePageActivity extends AppCompatActivity implements NavigationVie
             }
         });
 
+        /* ----------------------------------------------------------------------------------------------------------------------------- */
+        /* Search */
+
+        search = findViewById(R.id.search_badge);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+//                filter(search.toString());
+            }
+        });
         /* ----------------------------------------------------------------------------------------------------------------------------- */
     }
 

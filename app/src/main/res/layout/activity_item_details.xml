@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/itemDetailsName" />
 
     <Button
-        android:id="@+id/addToCartDetails"
+        android:id="@+id/addToCartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"

@@ -19,6 +19,7 @@ import com.example.skateshopapp.R;
 import com.example.skateshopapp.activity.ItemDetailsActivity;
 import com.example.skateshopapp.model.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.DeckViewHolder> {
@@ -65,7 +66,6 @@ public class DeckRecycleAdapter extends RecyclerView.Adapter<DeckRecycleAdapter.
     public int getItemCount() {
         return deckList.size();
     }
-
 
     public static class DeckViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

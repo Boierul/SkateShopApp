@@ -8,8 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +26,7 @@ import java.net.URL;
 
 public class ItemDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageLoadTask loadTask;
+    private Button addToCart;
     private ImageView backButton, itemImage;
     private TextView itemDetailsName, itemDetailsPrice, itemDetailsSize;
 
@@ -35,6 +37,9 @@ public class ItemDetailsActivity extends AppCompatActivity implements View.OnCli
 
         backButton = findViewById(R.id.back_button_item_details);
         backButton.setOnClickListener(this);
+
+        addToCart = findViewById(R.id.addToCartButton);
+        addToCart.setOnClickListener(this);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -64,6 +69,10 @@ public class ItemDetailsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view.getId() == R.id.back_button_item_details) {
             finish();
+        } else if (view.getId() == R.id.addToCartButton) {
+            Toast.makeText(this,
+                    "Item Added Successfully",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }
