@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private VideoView videoView;
 
-    private TextView resetPass, registerUser, noSignUp;
+    private TextView resetPass, registerUser, fetchDataFromServer;
     private EditText emailEditText, passwordEditText;
     private Button button;
     private ProgressBar progressBar;
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.main_activity);
 
-        noSignUp = findViewById(R.id.continueWithoutSignupTextView);
-        noSignUp.setOnClickListener(this);
+        fetchDataFromServer = findViewById(R.id.testDataTextView);
+        fetchDataFromServer.setOnClickListener(this);
 
         registerUser = findViewById(R.id.registerTextView);
         registerUser.setOnClickListener(this);
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, ForgetPasswordActivity.class));
         } else if (view.getId() == R.id.registerTextView) {
             startActivity(new Intent(this, RegisterActivity.class));
-        } else if (view.getId() == R.id.continueWithoutSignupTextView) {
+        } else if (view.getId() == R.id.testDataTextView) {
             /* TODO to modify it
             *             startActivity(new Intent(this, HomePageActivity.class));
              * */
