@@ -1,5 +1,7 @@
 An application created for a fictional skateboard company that sells its products online. Love skating, one of my ex-hobbies. Via this project I'm trying to motivate myself to start skating again, hopefully. 
 
+Demo: https://youtu.be/dkDA2f176hc
+
 # Requirements 
  - As an user I want the application to behave like a ordinary online shop
  - As an user I want to use the basic online shop functionality
