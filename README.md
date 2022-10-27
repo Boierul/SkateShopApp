@@ -10,7 +10,8 @@ An application created for a fictional skateboard company that sells its product
 ![Skate_Android_App_Image_5](https://i.postimg.cc/DZ2vcsJv/Screenshot-20221027-124354.png)
 ![Skate_Android_App_Image_6](https://i.postimg.cc/4dddgVJ8/Screenshot-20221027-125102.png)
 
-## [Demo Video](https://youtu.be/dkDA2f176hc)
+## Demo Video
+You can watch a demo video of the Skate App [here](https://youtu.be/dkDA2f176hc)
 
 ## Requirements 
  - As an user I want the application to behave like a ordinary online shop
